@@ -1,0 +1,11 @@
+
+{
+    "validBirthdate": "01.01.1990",
+    "invalidAgeBirthdate": "01.01.2012",
+    "futureBirthdate": "01.01.2025",
+    "income": "70.000",
+    "startDateValue": "3: 2024-10-01",
+    "startDateDisplay": "01.10.2024"
+  }
+  
+  

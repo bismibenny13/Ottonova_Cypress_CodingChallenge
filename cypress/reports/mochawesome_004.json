@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-08T14:27:06.740Z",
+    "end": "2024-08-08T14:27:07.047Z",
+    "duration": 307,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e41bb70a-c589-46c6-a6ae-a156f66d13f0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\backend\\pokemon.cy.js",
+      "file": "cypress\\e2e\\backend\\pokemon.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6e9c7d82-3bbc-4633-8ea0-f4e790205102",
+          "title": "PokeAPI Backend Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should check the response status and content of the endpoint",
+              "fullTitle": "PokeAPI Backend Test should check the response status and content of the endpoint",
+              "timedOut": null,
+              "duration": 278,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://pokeapi.co/api/v2/pokemon/pikachu').then(response => {\n  // Assert that the response status is 200\n  expect(response.status).to.eq(200);\n  // Assert that the response body includes \"moves\" and \"abilities\" properties\n  expect(response.body).to.have.property('name');\n  expect(response.body).to.have.property('abilities');\n  expect(response.body.name).to.eq('pikachu');\n});",
+              "err": {},
+              "uuid": "85860dac-877f-4523-9979-963a473da999",
+              "parentUUID": "6e9c7d82-3bbc-4633-8ea0-f4e790205102",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "85860dac-877f-4523-9979-963a473da999"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 278,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
