@@ -11,6 +11,57 @@ on:
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
+name: Run Cypress Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Cypress
+        run: npx cypress install
+
+      - name: Ensure Cypress is executable
+        run: chmod +x ./node_modules/.bin/cypress
+
+      - name: Run Cypress tests
+        run: npx cypress run
 
     steps:
       - name: Checkout code
