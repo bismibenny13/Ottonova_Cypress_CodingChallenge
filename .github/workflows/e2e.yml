@@ -3,19 +3,6 @@ name: Run Cypress Tests
 on:
   push:
     branches:
-      - master  # Adjust this to the branch you want to trigger tests on
-  pull_request:
-    branches:
-      - master  # Adjust this to the branch you want to trigger tests on
-
-jobs:
-  cypress-tests:
-    runs-on: ubuntu-latest
-name: Run Cypress Tests
-
-on:
-  push:
-    branches:
       - master
   pull_request:
     branches:
@@ -56,24 +43,6 @@ jobs:
 
       - name: Install Cypress
         run: npx cypress install
-
-      - name: Ensure Cypress is executable
-        run: chmod +x ./node_modules/.bin/cypress
-
-      - name: Run Cypress tests
-        run: npx cypress run
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'  # Specify the Node.js version you need
-
-      - name: Install dependencies
-        run: npm install
 
       - name: Ensure Cypress is executable
         run: chmod +x ./node_modules/.bin/cypress
